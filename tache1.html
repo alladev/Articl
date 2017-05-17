@@ -1,0 +1,116 @@
+﻿<html>
+<head>
+<title>Tache 1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+</head>
+<body>
+<div class="container">
+  <h2>Tableaux des mission 1</h2>
+  
+   <br>
+  <div class="row" >
+	 <div class="col-md-6 col-md-offset-3"> 
+        <div class="list-group">
+            <a   class="list-group-item active" style="font-size:1.5em;text-align: center;">Info1</a>
+            <a href="#" id="tach1"   data-toggle="modal" data-target="#myModal" class="list-group-item"  onclick="appelredacteur()">tache 1</a>
+            <a href="#" id="tach2" data-toggle="modal" data-target="#myModal" class="list-group-item"  onclick="appelredacteur()" class="list-group-item">tache 2</a>
+        </div>
+      </div>
+	  
+	  
+   </div>
+   <div class="row" >
+	 <div class="col-md-6 col-md-offset-3"> 
+        <div class="list-group">
+            <a   class="list-group-item active" style="font-size:1.5em;text-align: center;">Info1</a>
+            <a href="#" id="tach3" data-toggle="modal" data-target="#myModal" class="list-group-item"  onclick="appelredacteur()" class="list-group-item">tache 1</a>
+            <a href="#" id="tach4" data-toggle="modal" data-target="#myModal" class="list-group-item"  onclick="appelredacteur()" class="list-group-item">tache 2</a>
+        </div>
+      </div>
+	  
+	  
+   </div>
+     <div class="row" >
+	 <div class="col-md-6 col-md-offset-3"> 
+        <div class="list-group">
+            <a   class="list-group-item active" style="font-size:1.5em;text-align: center;">Info1</a>
+            <a href="#" id="tach5" data-toggle="modal" data-target="#myModal" class="list-group-item"  onclick="appelredacteur()"  class="list-group-item">tache 1</a>
+            <a href="#" id="tach6" data-toggle="modal" data-target="#myModal" class="list-group-item"  onclick="appelredacteur()" class="list-group-item">tache 2</a>
+        </div>
+      </div>
+	  
+	  
+   </div>
+  
+ 
+ <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body" id="zone">
+        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+ 
+ 
+ 
+ 
+ 
+</div>
+</body>
+	<script>
+	
+
+	
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();  
+
+        
+          }); 
+	
+
+
+function appelredacteur(){
+
+      
+          $.getJSON('articl.json', function(data){
+		  var i=1;
+		  $("#zone").empty();
+		     $.each(data,function(index,d){
+           $('#zone').append("<h4>Rédacteur"+i+"</h4><strong>Nom : </strong>"+d.nom+"<br><strong>Prénom : </strong>"+d.prenom+"<br><hr>");
+            i++;
+		      });
+          });
+       
+	}
+	 
+
+
+//
+    
+		  
+		 
+  
+// 
+
+
+
+
+</script>
+</html>
